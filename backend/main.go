@@ -1,14 +1,11 @@
-package hello
+package main
 
 import (
-    "fmt"
     "net/http"
+    "resume"
 )
 
 func init() {
-    http.HandleFunc("/test", handler)
-}
-
-func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Hello, world!")
+    http.HandleFunc("/resume", resume.Handler)
+    http.HandleFunc("/dummy", resume.DummyInjector)
 }
